@@ -1,0 +1,93 @@
+* {
+    outline: 1px solid rgba(255, 0, 0, 0.4);
+  }
+  
+* * {
+outline: 1px solid rgba(0, 255, 0, 0.4);
+}
+
+* * * {
+outline: 1px solid rgba(0, 0, 255, 0.4);
+}
+
+* * * * {
+outline: 1px solid rgba(255, 255, 0, 0.4);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    
+  }
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;           /* remove bullets */
+    padding: 0;
+    margin: 0;
+    background-color: #0077cc;
+}
+
+nav li {
+    padding: 20px;
+
+}
+
+.bomContainer {
+    display: flex;
+    justify-content: center;  /* centers horizontally */
+    align-items: center;      /* centers vertically */
+    height: 50vh;
+  }
+#bomimgos {
+    
+    display: flex;
+    justify-content: center;
+    
+}
+#bottomNav {
+    position: fixed;
+    bottom: 20px;
+}
+
+#bottomNav img {
+    padding: 5px;
+    width: 20%;
+    height: 20%;
+}
+
+/* Modal background overlay */
+.modal {
+    display: none;               /* hidden by default */
+    position: fixed;             /* stays in viewport */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent dark overlay */
+    justify-content: center;     /* centers modal content horizontally */
+    align-items: center;         /* centers modal content vertically */
+    z-index: 1000;               /* on top of everything */
+  }
+  
+  /* Modal content box */
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    position: relative;
+  }
+  
+  /* Close button */
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  

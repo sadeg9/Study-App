@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <nav>
+      <ul id="topNav">
+        <li><button data-modal="shopModal">Shop</button></li>
+        <li><button data-modal="lockerModal">Locker</button></li>
+        <li><button data-modal="settingsModal">Settings</button></li>
+      </ul>
+    </nav>
+
+    <nav id="bottomNav">
+      <ul>
+        <li>
+          <button data-modal="setTimerModal">
+            <img src="images/timer.jpg" alt="timerIcon" />
+          </button>
+        </li>
+        <li>
+          <button data-modal="freeTimeModal">
+            <img src="images/timer.jpg" alt="timerIcon" />
+          </button>
+        </li>
+        <li>
+          <button data-modal="presetTimeModal">
+            <img src="images/timer.jpg" alt="timerIcon" />
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="bomContainer">
+      <img id="bomimgos" src="images/kitten.jpg" alt="kitten" />
+    </div>
+
+    <div id="topModals">
+      <div id="settingsModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Settings</h2>
+          <p>Here are your settings options...</p>
+        </div>
+      </div>
+      <div id="shopModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Shop</h2>
+          <p>Here is the shop...</p>
+        </div>
+      </div>
+      <div id="lockerModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Locker</h2>
+          <p>Here is your locker...</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="bottomModals">
+      <div id="setTimerModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Set Timer</h2>
+        </div>
+      </div>
+      <div id="presetTimeModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Preset Timer</h2>
+        </div>
+      </div>
+      <div id="freeTimeModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Free Timer</h2>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
