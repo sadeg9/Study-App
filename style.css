@@ -1,93 +1,278 @@
 * {
-    outline: 1px solid rgba(255, 0, 0, 0.4);
-  }
-  
-* * {
-outline: 1px solid rgba(0, 255, 0, 0.4);
-}
-
-* * * {
-outline: 1px solid rgba(0, 0, 255, 0.4);
-}
-
-* * * * {
-outline: 1px solid rgba(255, 255, 0, 0.4);
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    
-  }
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;           /* remove bullets */
-    padding: 0;
-    margin: 0;
-    background-color: #0077cc;
+  background-color: #1e1f25;
+  color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
 }
 
-nav li {
-    padding: 20px;
-
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  width: 100%;
+  background-color: #252731;
+  border-bottom: 1px solid #3a3d46;
 }
 
-.bomContainer {
-    display: flex;
-    justify-content: center;  /* centers horizontally */
-    align-items: center;      /* centers vertically */
-    height: 50vh;
-  }
-#bomimgos {
-    
-    display: flex;
-    justify-content: center;
-    
-}
-#bottomNav {
-    position: fixed;
-    bottom: 20px;
+header img {
+  height: 3.5rem;
 }
 
-#bottomNav img {
-    padding: 5px;
-    width: 20%;
-    height: 20%;
+#subjectInput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+#subjectSelect {
+  background-color: #2b2d33;
+  color: #f5f5f5;
+  border: 1px solid #3a3d46;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  width: 200px;
+  cursor: pointer;
 }
 
-/* Modal background overlay */
-.modal {
-    display: none;               /* hidden by default */
-    position: fixed;             /* stays in viewport */
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent dark overlay */
-    justify-content: center;     /* centers modal content horizontally */
-    align-items: center;         /* centers modal content vertically */
-    z-index: 1000;               /* on top of everything */
-  }
-  
-  /* Modal content box */
-  .modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 400px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    position: relative;
-  }
-  
-  /* Close button */
-  .close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
-    cursor: pointer;
-  }
-  
+
+#subjectInput input {
+  background-color: #2b2d33;
+  color: #f5f5f5;
+  border: 1px solid #3a3d46;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  width: 200px;
+}
+
+#timerSpread {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+#timerSpread button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#timerSpread img {
+  width: 40px;
+  height: 40px;
+}
+
+#mainTimer {
+  background-color: #2b2d33;
+  border: 2px solid #3a3d46;
+  border-radius: 6px;
+  width: 42rem;
+  height: 17rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+#timeDisplay {
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+#modeLabel {
+  font-size: 1.25rem;
+  color: #a3d977;
+}
+
+#progressBar {
+  width: 80%;
+  height: 8px;
+  background-color: #3a3d46;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+#progressFill {
+  height: 100%;
+  width: 0%;
+  background-color: #a3d977;
+  transition: width 0.5s linear;
+}
+
+#pauseButton {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+#pauseButton button {
+  background: none;
+  border: 2px solid #3a3d46;
+  border-radius: 6px;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+#pauseButton img {
+  width: 32px;
+  height: 32px;
+}
+
+.sideButtons {
+  position: fixed;
+  top: 40%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sideButtons ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sideButtons button {
+  border-radius: 4px;
+  border: 1px solid #3a3d46;
+  background-color: #2b2d33;
+  color: #f5f5f5;
+  padding: 0.75rem;
+  width: 90px;
+  cursor: pointer;
+}
+
+.sideButtons button:hover {
+  background-color: #353841;
+}
+
+/* Menus */
+.hidden { display: none !important; }
+
+#modeMenu, #statsMenu {
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30,31,37,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.menuContent {
+  position: relative;
+  background-color: #2b2d33;
+  border: 1px solid #3a3d46;
+  border-radius: 4px;
+  padding: 2rem;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+.menuContent h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.menuContent ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menuContent li {
+  background-color: #353841;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.menuContent li:hover {
+  background-color: #464a54;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #b0b3b8;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.closeBtn:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+#statsList {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+#statsList li {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background-color: #353841;
+  border-radius: 4px;
+}
+
+#classesMenu .menuContent input {
+  width: 80%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #3a3d46;
+  border-radius: 4px;
+  background-color: #2b2d33;
+  color: #f5f5f5;
+}
+
+#classesMenu .menuContent button {
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  border: 1px solid #3a3d46;
+  background-color: #353841;
+  color: #f5f5f5;
+  cursor: pointer;
+}
+
+#classList li {
+  padding: 0.5rem;
+  margin: 0.25rem 0;
+  border-radius: 4px;
+  background-color: #353841;
+  cursor: pointer;
+}
+
+#classList li:hover {
+  background-color: #464a54;
+}
