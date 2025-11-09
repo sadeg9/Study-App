@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
       updateDisplay();
       modeLabel.textContent = "Focus";
       progressFill.style.backgroundColor = "#a3d977";
-      if(toggleBtn.querySelector("img")) toggleBtn.querySelector("img").src = "images/play.png";
+      if(toggleBtn.querySelector("img")) toggleBtn.querySelector("img").src = "images/play_button.svg";
     }
   
     function startTimer() {
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
       startTime = Date.now();
       const subject = subjectSelect.value || "Unknown"; // dropdown value
       currentSession = { subject, startTime, mode:"pomodoro" };
-      if(toggleBtn.querySelector("img")) toggleBtn.querySelector("img").src = "images/pause.png";
+      if(toggleBtn.querySelector("img")) toggleBtn.querySelector("img").src = "images/pause_button.svg";
   
       timerInterval = setInterval(() => {
         const now = Date.now();
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
       isRunning = false;
       clearInterval(timerInterval);
       completeSession();
-      if(toggleBtn.querySelector("img")) toggleBtn.querySelector("img").src = "images/play.png";
+      if(toggleBtn.querySelector("img")) toggleBtn.querySelector("img").src = "images/play_button.svg";
     }
   
     function toggleTimer() { if(isRunning) pauseTimer(); else startTimer(); }
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
       timeLeft = isFocus ? FOCUS_TIME : BREAK_TIME;
       modeLabel.textContent = isFocus ? "Focus" : "Break";
       progressFill.style.backgroundColor = isFocus ? "#a3d977" : "#77b3d9";
-      if(toggleBtn.querySelector("img")) toggleBtn.querySelector("img").src = "images/play.png";
+      if(toggleBtn.querySelector("img")) toggleBtn.querySelector("img").src = "images/play_button.svg";
       updateDisplay();
     }
   
