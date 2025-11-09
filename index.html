@@ -66,13 +66,7 @@
       </div>
     </div>
 
-    <!-- <footer>
-      <p>
-        1. Classes Button -> enter your classes/subjects you will work on
-        2. Before starting timer select subject
-        3. 
-      </p>
-    </footer> -->
+    
     
     <!-- MODE MENU -->
     <div id="modeMenu" class="hidden">
@@ -94,6 +88,33 @@
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- FIREBASE INITIALIZATION -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+      import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-analytics.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyC-lMVbg6q9XyPyQZ9xEmqY6j8EputUs5s",
+        authDomain: "study-app-f3f70.firebaseapp.com",
+        projectId: "study-app-f3f70",
+        storageBucket: "study-app-f3f70.firebasestorage.app",
+        messagingSenderId: "338859503551",
+        appId: "1:338859503551:web:f42df0af1d34a0f5a27b0a",
+        measurementId: "G-L3YTVWW110"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const db = getFirestore(app);
+
+      // Make Firestore globally available to your main script
+      window.firebaseDB = db;
+      window.firebaseTools = { collection, addDoc, getDocs };
+    </script>
+
+    <!-- YOUR MAIN SCRIPT -->
+    <script src="script.js" type="module"></script>
+    
   </body>
 </html>
