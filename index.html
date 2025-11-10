@@ -7,24 +7,12 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- ---------- AUTH OVERLAY ---------- -->
-  <div id="authOverlay" class="overlay">
-    <div class="authBox">
-      <h2>Login / Register</h2>
-      <input id="emailInput" type="email" placeholder="Email" />
-      <input id="passwordInput" type="password" placeholder="Password" />
-      <button id="loginBtn">Login</button>
-      <button id="registerBtn">Register</button>
-    </div>
-  </div>
-
-  <!-- ---------- HEADER ---------- -->
   <header>
     <h1>Study Timer</h1>
     <img src="images/CatEgg.png" alt="kitten icon" />
   </header>
 
-  <!-- ---------- Subject Selection ---------- -->
+  <!-- Subject Selection -->
   <div id="subjectInput">
     <label for="subjectSelect">Subject:</label>
     <select id="subjectSelect">
@@ -32,7 +20,7 @@
     </select>
   </div>
 
-  <!-- ---------- Timer Spread ---------- -->
+  <!-- Timer Spread -->
   <div id="timerSpread">
     <button id="menuTimer" type="button">
       <img src="images/menu.png" alt="Menu" />
@@ -49,7 +37,7 @@
     </button>
   </div>
 
-  <!-- ---------- Pause / Reset Buttons ---------- -->
+  <!-- Pause/Reset Buttons -->
   <div id="pauseButton">
     <button id="toggleBtn" type="button">
       <img src="images/play_button.svg" alt="Play/Pause"/>
@@ -59,7 +47,7 @@
     </button>
   </div>
 
-  <!-- ---------- Side Buttons ---------- -->
+  <!-- Side Buttons -->
   <div class="sideButtons">
     <ul class="left">
       <li><button type="button">Settings</button></li>
@@ -71,8 +59,19 @@
     </ul>
   </div>
 
-  <!-- ---------- Classes Menu ---------- -->
-  <div id="classesMenu" class="hidden overlay">
+  <!-- Login/Register Overlay -->
+  <div id="authOverlay" class="overlay">
+    <div class="authBox">
+      <h2>Login / Register</h2>
+      <input id="emailInput" type="email" placeholder="Email" />
+      <input id="passwordInput" type="password" placeholder="Password" />
+      <button id="loginBtn">Login</button>
+      <button id="registerBtn">Register</button>
+    </div>
+  </div>
+
+  <!-- Classes Menu -->
+  <div id="classesMenu" class="hidden">
     <div class="menuContent">
       <button id="closeClasses" class="closeBtn">&times;</button>
       <h2>Manage Classes</h2>
@@ -82,8 +81,8 @@
     </div>
   </div>
 
-  <!-- ---------- Mode Menu ---------- -->
-  <div id="modeMenu" class="hidden overlay">
+  <!-- Mode Menu -->
+  <div id="modeMenu" class="hidden">
     <div class="menuContent">
       <button id="closeMenu" class="closeBtn">&times;</button>
       <h2>Select Mode</h2>
@@ -93,8 +92,8 @@
     </div>
   </div>
 
-  <!-- ---------- Stats Menu ---------- -->
-  <div id="statsMenu" class="hidden overlay">
+  <!-- Stats Menu -->
+  <div id="statsMenu" class="hidden">
     <div class="menuContent">
       <button id="closeStats" class="closeBtn">&times;</button>
       <h2>Study Stats</h2>
@@ -102,7 +101,7 @@
     </div>
   </div>
 
-  <!-- ---------- FIREBASE ---------- -->
+  <!-- Firebase Initialization -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-analytics.js";
@@ -120,17 +119,14 @@
     };
 
     const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const db = getFirestore(app);
-    const auth = getAuth(app);
+    getAnalytics(app);
 
-    // Make globally accessible
-    window.firebaseDB = db;
-    window.firebaseAuth = auth;
+    // Make Firebase globally available
+    window.firebaseDB = getFirestore(app);
+    window.firebaseAuth = getAuth(app);
   </script>
 
-  <!-- ---------- MAIN SCRIPT ---------- -->
+  <!-- Main Script -->
   <script type="module" src="script.js"></script>
-
 </body>
 </html>
