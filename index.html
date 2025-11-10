@@ -1,128 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Study Timer</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Study Timer</h1>
-      <img src="images/CatEgg.png" alt="kitten icon" />
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Timer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ---------- AUTH OVERLAY ---------- -->
+  <div id="authOverlay" class="overlay">
+    <div class="authBox">
+      <h2>Login / Register</h2>
+      <input id="emailInput" type="email" placeholder="Email" />
+      <input id="passwordInput" type="password" placeholder="Password" />
+      <button id="loginBtn">Login</button>
+      <button id="registerBtn">Register</button>
+    </div>
+  </div>
 
-    <div id="subjectInput">
-      <label for="subjectSelect">Subject:</label>
-      <select id="subjectSelect">
-        <option value="">--Select Class--</option>
-      </select>
+  <!-- ---------- HEADER ---------- -->
+  <header>
+    <h1>Study Timer</h1>
+    <img src="images/CatEgg.png" alt="kitten icon" />
+  </header>
+
+  <!-- ---------- Subject Selection ---------- -->
+  <div id="subjectInput">
+    <label for="subjectSelect">Subject:</label>
+    <select id="subjectSelect">
+      <option value="">--Select Class--</option>
+    </select>
+  </div>
+
+  <!-- ---------- Timer Spread ---------- -->
+  <div id="timerSpread">
+    <button id="menuTimer" type="button">
+      <img src="images/menu.png" alt="Menu" />
+    </button>
+
+    <div id="mainTimer">
+      <div id="timeDisplay">25:00</div>
+      <div id="progressBar"><div id="progressFill"></div></div>
+      <div id="modeLabel">Focus</div>
     </div>
 
-    <div id="timerSpread">
-      <button id="menuTimer" type="button">
-        <img src="images/menu.png" alt="Menu" />
-      </button>
+    <button id="functionTime" type="button">
+      <img src="images/CatEgg.png" alt="Fn" />
+    </button>
+  </div>
 
-      <div id="mainTimer">
-        <div id="timeDisplay">25:00</div>
-        <div id="progressBar"><div id="progressFill"></div></div>
-        <div id="modeLabel">Focus</div>
-      </div>
+  <!-- ---------- Pause / Reset Buttons ---------- -->
+  <div id="pauseButton">
+    <button id="toggleBtn" type="button">
+      <img src="images/play_button.svg" alt="Play/Pause"/>
+    </button>
+    <button id="resetBtn" type="button">
+      <img src="images/CatEgg.png" alt="Reset" />
+    </button>
+  </div>
 
-      <button id="functionTime" type="button">
-        <img src="images/CatEgg.png" alt="Fn" />
-      </button>
+  <!-- ---------- Side Buttons ---------- -->
+  <div class="sideButtons">
+    <ul class="left">
+      <li><button type="button">Settings</button></li>
+      <li><button type="button">Help</button></li>
+    </ul>
+    <ul class="right">
+      <li><button id="statsBtn" type="button">Stats</button></li>
+      <li><button id="classesBtn" type="button">Classes</button></li>
+    </ul>
+  </div>
+
+  <!-- ---------- Classes Menu ---------- -->
+  <div id="classesMenu" class="hidden overlay">
+    <div class="menuContent">
+      <button id="closeClasses" class="closeBtn">&times;</button>
+      <h2>Manage Classes</h2>
+      <input type="text" id="newClassInput" placeholder="Enter class name" />
+      <button id="addClassBtn">Add Class</button>
+      <ul id="classList"></ul>
     </div>
+  </div>
 
-    <div id="pauseButton">
-      <button id="toggleBtn" type="button">
-        <img src="images/play_button.svg" alt="Play/Pause"/>
-      </button>
-      <button id="resetBtn" type="button">
-        <img src="images/CatEgg.png" alt="Reset" />
-      </button>
-    </div>
- 
-    <div class="sideButtons">
-      <ul class="left">
-        <li><button type="button">Settings</button></li>
-        <li><button type="button">Help</button></li>
+  <!-- ---------- Mode Menu ---------- -->
+  <div id="modeMenu" class="hidden overlay">
+    <div class="menuContent">
+      <button id="closeMenu" class="closeBtn">&times;</button>
+      <h2>Select Mode</h2>
+      <ul>
+        <li data-mode="pomodoro">Pomodoro</li>
       </ul>
-      <ul class="right">
-        <li><button id="statsBtn" type="button">Stats</button></li>
-        <li><button id="classesBtn" type="button">Classes</button></li>
-      </ul>
     </div>
-    <div id="authOverlay" class="overlay">
-      <div class="authBox">
-        <h2>Login / Register</h2>
-        <input id="emailInput" type="email" placeholder="Email" />
-        <input id="passwordInput" type="password" placeholder="Password" />
-        <button id="loginBtn">Login</button>
-        <button id="registerBtn">Register</button>
-      </div>
+  </div>
+
+  <!-- ---------- Stats Menu ---------- -->
+  <div id="statsMenu" class="hidden overlay">
+    <div class="menuContent">
+      <button id="closeStats" class="closeBtn">&times;</button>
+      <h2>Study Stats</h2>
+      <ul id="statsList"></ul>
     </div>
-    <!-- Classes menu -->
-    <div id="classesMenu" class="hidden">
-      <div class="menuContent">
-        <button id="closeClasses" class="closeBtn">&times;</button>
-        <h2>Manage Classes</h2>
-        <input type="text" id="newClassInput" placeholder="Enter class name" />
-        <button id="addClassBtn">Add Class</button>
-        <ul id="classList"></ul>
-      </div>
-    </div>
+  </div>
 
-    
-    
-    <!-- MODE MENU -->
-    <div id="modeMenu" class="hidden">
-      <div class="menuContent">
-        <button id="closeMenu" class="closeBtn">&times;</button>
-        <h2>Select Mode</h2>
-        <ul>
-          <li data-mode="pomodoro">Pomodoro</li>
-        </ul>
-      </div>
-    </div>
+  <!-- ---------- FIREBASE ---------- -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-analytics.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
 
-    <!-- STATS MENU -->
-    <div id="statsMenu" class="hidden">
-      <div class="menuContent">
-        <button id="closeStats" class="closeBtn">&times;</button>
-        <h2>Study Stats</h2>
-        <ul id="statsList"></ul>
-      </div>
-    </div>
+    const firebaseConfig = {
+      apiKey: "AIzaSyC-lMVbg6q9XyPyQZ9xEmqY6j8EputUs5s",
+      authDomain: "study-app-f3f70.firebaseapp.com",
+      projectId: "study-app-f3f70",
+      storageBucket: "study-app-f3f70.firebasestorage.app",
+      messagingSenderId: "338859503551",
+      appId: "1:338859503551:web:f42df0af1d34a0f5a27b0a",
+      measurementId: "G-L3YTVWW110"
+    };
 
-    <!-- FIREBASE INITIALIZATION -->
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
-      import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-analytics.js";
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getFirestore(app);
+    const auth = getAuth(app);
 
-      const firebaseConfig = {
-        apiKey: "AIzaSyC-lMVbg6q9XyPyQZ9xEmqY6j8EputUs5s",
-        authDomain: "study-app-f3f70.firebaseapp.com",
-        projectId: "study-app-f3f70",
-        storageBucket: "study-app-f3f70.firebasestorage.app",
-        messagingSenderId: "338859503551",
-        appId: "1:338859503551:web:f42df0af1d34a0f5a27b0a",
-        measurementId: "G-L3YTVWW110"
-      };
+    // Make globally accessible
+    window.firebaseDB = db;
+    window.firebaseAuth = auth;
+  </script>
 
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
-      const db = getFirestore(app);
+  <!-- ---------- MAIN SCRIPT ---------- -->
+  <script type="module" src="script.js"></script>
 
-      // Make Firestore globally available to your main script
-      window.firebaseDB = db;
-      window.firebaseTools = { collection, addDoc, getDocs };
-    </script>
-
-    <!-- YOUR MAIN SCRIPT -->
-    <script src="script.js" type="module"></script>
-    
-  </body>
+</body>
 </html>
